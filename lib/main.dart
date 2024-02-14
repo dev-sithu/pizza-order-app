@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pizza_app/utils/font_style.dart';
 
 void main() {
   runApp(const MainApp());
@@ -11,6 +12,9 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        fontFamily: 'Roboto',
+      ),
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Theme.of(context).colorScheme.onInverseSurface,
@@ -25,17 +29,13 @@ class MainApp extends StatelessWidget {
               debugPrint('Title clicked!')
             },
               child: RichText(
-              text: const TextSpan(
+              text: TextSpan(
                 text: 'Delivery To:',
-                style: TextStyle(fontSize: 16),
+                style: textBody(),
                 children: <TextSpan>[
                   TextSpan(
                     text: '\nHOME',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
-                      height: 1.5,
-                    ),
+                    style: textPreTitle(),
                   ),
                 ]
               ),
