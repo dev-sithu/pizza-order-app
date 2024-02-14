@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pizza_app/utils/font_style.dart';
+import 'package:pizza_app/pages/home.dart';
 
 void main() {
   runApp(const MainApp());
@@ -15,46 +15,7 @@ class MainApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'Roboto',
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.onInverseSurface,
-          leading: GestureDetector(
-            onTap: () => {
-              debugPrint('Leading icon clicked!')
-            },
-            child: const Icon(Icons.menu),
-          ),
-          title: GestureDetector(
-            onTap: () => {
-              debugPrint('Title clicked!')
-            },
-              child: RichText(
-              text: TextSpan(
-                text: 'Delivery To:',
-                style: textBody(),
-                children: <TextSpan>[
-                  TextSpan(
-                    text: '\nHOME',
-                    style: textPreTitle(),
-                  ),
-                ]
-              ),
-            ),
-          ),
-          actions: [
-            IconButton(
-              icon: const Icon(Icons.shopping_bag),
-              onPressed: () {
-                debugPrint('Action icon clicked');
-              },
-            ),
-            const SizedBox(width: 20)
-          ],
-        ),
-        body: const Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+      home: const Home(),
     );
   }
 }
