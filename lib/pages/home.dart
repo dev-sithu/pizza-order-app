@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pizza_app/utils/font_style.dart';
+import 'package:pizza_app/utils/typography.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
