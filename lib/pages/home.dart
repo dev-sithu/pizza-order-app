@@ -94,23 +94,85 @@ class Home extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 20, right: 20),
               child: Container(
+                width: double.infinity,
                 height: 218,
                 transform: Matrix4.translationValues(0.0, -35.0, 0.0),
                 decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                )
+                ),
+                child: Row(
+                  children: [
+                    Image.asset('assets/images/thinCrust_w_ toppings_1.png'),
+                    Flexible( // for word-wrap
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text('Reorder again?', style: textHeader4(color: const Color(0xffF5313F))),
+                          Text('Small, thin crust, tomatoes, basil, cheese'.toUpperCase(), style: textPreTitle()),
+                          const SizedBox(height: 5),
+                          Text('\$12', style: textHeader4()),
+                          const SizedBox(height: 8),
+                          MaterialButton(
+                            onPressed: () {
+                              debugPrint('Add To Cart clicked!');
+                            },
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
+                            padding: const EdgeInsets.all(0.0),
+                            child: Ink(
+                              decoration: BoxDecoration(
+                                gradient: const LinearGradient(
+                                  begin: Alignment.topRight,
+                                  end: Alignment.bottomLeft,
+                                  colors: [
+                                    Color(0xffFFA360),
+                                    Color(0xffF5313F),
+                                  ],
+                                ),
+                                borderRadius: BorderRadius.circular(30.0)
+                              ),
+                              child: Container(
+                                constraints: const BoxConstraints(maxWidth: 123.0, minHeight: 38.0),
+                                alignment: Alignment.center,
+                                child: Text(
+                                  'Add To Cart',
+                                  textAlign: TextAlign.center,
+                                  style: textBodyBold(color: Colors.white),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      )
+                    )
+                  ],
+                ),
               ),
             ),
             // Card / Create Pizza
             Padding(
               padding: const EdgeInsets.only(left: 20, right: 20),
-              child: Container(
-                height: 438,
-                decoration: const BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                )
+              child: GestureDetector(
+                child: Container(
+                  width: double.infinity,
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                  ),
+                  child: Column(
+                    children: [
+                      const SizedBox(height: 45),
+                      Image.asset('assets/images/create_your_own_pizza.png'),
+                      const SizedBox(height: 5),
+                      Text('The cost will depend on your customization'.toUpperCase(), style: textPreTitle(color: const Color(0xffA0A8CC))),
+                      Image.asset('assets/images/thickCrust_w_ toppings_w_ toppings_02_1.png'),
+                    ],
+                  ),
+                ),
+                onTap: () {
+                  debugPrint('go to the screen to choose size!');
+                },
               ),
             ),
           ],

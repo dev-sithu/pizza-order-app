@@ -64,3 +64,12 @@ TextStyle textBody({Color? color}) {
     height: 1.5,
   ).copyWith(color: color);
 }
+
+TextStyle textBodyBold({Color? color}) {
+  return const TextStyle(
+    fontSize: 14.0,
+    fontWeight: FontWeight.bold,
+    letterSpacing: 0,
+    height: 1.5,
+  ).copyWith(color: color);
+}
