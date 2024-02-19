@@ -1,6 +1,6 @@
-# pizza_app
+# Pizza Order App
 
-A pizza order &  delivery application prototype.
+A pizza order &  delivery application prototype developed using flutter.
 
 ## Installation
 
@@ -8,8 +8,8 @@ Install Flutter in your local machine according to the doc https://docs.flutter.
 
 Then clone the repo and setup,
 
-    git clone https://github.com/dev-sithu/pizza_app
-    cd pizza_app
+    git clone https://github.com/dev-sithu/pizza-order-app
+    cd pizza-order-app
     flutter pub get
 
 In VS Code, press F5 to run the app with web platform option.
