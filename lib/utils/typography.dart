@@ -45,14 +45,16 @@ TextStyle textButtonDefault({Color? color}) {
     fontSize: 15.0,
     fontWeight: FontWeight.normal,
     letterSpacing: -0.3,
+    color: Color(0xff6D6E9C)
   ).copyWith(color: color);
 }
 
 TextStyle textButtonSelected({Color? color}) {
   return const TextStyle(
     fontSize: 15.0,
-    fontWeight: FontWeight.bold,
+    fontWeight: FontWeight.w700,
     letterSpacing: -0.3,
+    color: Colors.white,
   ).copyWith(color: color);
 }
 
@@ -62,6 +64,7 @@ TextStyle textBody({Color? color}) {
     fontWeight: FontWeight.normal,
     letterSpacing: 0,
     height: 1.5,
+    color: Color(0xff6D6E9C)
   ).copyWith(color: color);
 }
 
@@ -71,5 +74,13 @@ TextStyle textBodyBold({Color? color}) {
     fontWeight: FontWeight.bold,
     letterSpacing: 0,
     height: 1.5,
+  ).copyWith(color: color);
+}
+
+TextStyle textTitleLight({Color? color}) {
+  return const TextStyle(
+    fontSize: 15.0,
+    fontWeight: FontWeight.w300,
+    letterSpacing: -0.3,
   ).copyWith(color: color);
 }

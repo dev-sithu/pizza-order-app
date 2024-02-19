@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pizza_app/utils/typography.dart';
+import 'package:pizza_app/widgets/button_selected.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -114,34 +115,12 @@ class Home extends StatelessWidget {
                           const SizedBox(height: 5),
                           Text('\$12', style: textHeader4()),
                           const SizedBox(height: 8),
-                          MaterialButton(
+                          SelectedButton(
+                            label: 'Add To Cart',
+                            width: 123.0,
                             onPressed: () {
-                              debugPrint('Add To Cart clicked!');
+                              debugPrint('add to cart');
                             },
-                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
-                            padding: const EdgeInsets.all(0.0),
-                            child: Ink(
-                              decoration: BoxDecoration(
-                                gradient: const LinearGradient(
-                                  begin: Alignment.topRight,
-                                  end: Alignment.bottomLeft,
-                                  colors: [
-                                    Color(0xffFFA360),
-                                    Color(0xffF5313F),
-                                  ],
-                                ),
-                                borderRadius: BorderRadius.circular(30.0)
-                              ),
-                              child: Container(
-                                constraints: const BoxConstraints(maxWidth: 123.0, minHeight: 38.0),
-                                alignment: Alignment.center,
-                                child: Text(
-                                  'Add To Cart',
-                                  textAlign: TextAlign.center,
-                                  style: textBodyBold(color: Colors.white),
-                                ),
-                              ),
-                            ),
                           ),
                         ],
                       )
@@ -171,7 +150,7 @@ class Home extends StatelessWidget {
                   ),
                 ),
                 onTap: () {
-                  debugPrint('go to the screen to choose size!');
+                  Navigator.of(context).pushNamed('/size');
                 },
               ),
             ),
@@ -181,3 +160,4 @@ class Home extends StatelessWidget {
     );
   }
 }
+

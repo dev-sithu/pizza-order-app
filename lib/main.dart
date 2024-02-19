@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pizza_app/pages/choose_size.dart';
 import 'package:pizza_app/pages/home.dart';
 
 void main() {
@@ -16,7 +17,11 @@ class MainApp extends StatelessWidget {
         fontFamily: 'Roboto',
         scaffoldBackgroundColor: const Color(0xffF4F3F9),
       ),
-      home: const Home(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const Home(),
+        '/size': (context) => const ChooseSize(),
+      },
     );
   }
 }
