@@ -75,11 +75,11 @@ class _ChooseCrustState extends State<ChooseCrust> {
   List<Widget> get thinSelected {
     return <Widget>[
       SelectedButton(
-        label: 'Thin',
+        label: crustLabels['thin']!,
         onPressed: () => setState(() => selectedCrust = 'thin')
       ),
       DefaultButton(
-        label: 'Thick',
+        label: crustLabels['thick']!,
         onPressed: () => setState(() => selectedCrust = 'thick')
       ),
     ];
@@ -88,11 +88,11 @@ class _ChooseCrustState extends State<ChooseCrust> {
   List<Widget> get thickSelected {
     return <Widget>[
       DefaultButton(
-        label: 'Thin',
+        label: crustLabels['thin']!,
         onPressed: () => setState(() => selectedCrust = 'thin')
       ),
       SelectedButton(
-        label: 'Thick',
+        label: crustLabels['thick']!,
         onPressed: () => setState(() => selectedCrust = 'thick')
       ),
     ];

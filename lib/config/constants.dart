@@ -1,3 +1,12 @@
+const sizeLabels = <String, String>{
+  'sm': 'Small',
+  'md': 'Medium',
+  'lg': 'Large',
+};
+const crustLabels = <String, String>{
+  'thin': 'Thin',
+  'thick': 'Thick',
+};
 const sizes = <String, int>{
   'sm': 10,
   'md': 12,

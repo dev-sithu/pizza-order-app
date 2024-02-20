@@ -75,15 +75,15 @@ class _ChooseSizeState extends State<ChooseSize> {
   List<Widget> get smallSelected {
     return <Widget>[
       SelectedButton(
-        label: 'Small',
+        label: sizeLabels['sm']!,
         onPressed: () => setState(() => selectedSize = 'sm')
       ),
       DefaultButton(
-        label: 'Medium',
+        label: sizeLabels['md']!,
         onPressed: () => setState(() => selectedSize = 'md')
       ),
       DefaultButton(
-        label: 'Large',
+        label: sizeLabels['lg']!,
         onPressed: () => setState(() => selectedSize = 'lg')
       ),
     ];
@@ -92,15 +92,15 @@ class _ChooseSizeState extends State<ChooseSize> {
   List<Widget> get mediumSelected {
     return <Widget>[
       DefaultButton(
-        label: 'Small',
+        label: sizeLabels['sm']!,
         onPressed: () => setState(() => selectedSize = 'sm')
       ),
       SelectedButton(
-        label: 'Medium',
+        label: sizeLabels['md']!,
         onPressed: () => setState(() => selectedSize = 'md')
       ),
       DefaultButton(
-        label: 'Large',
+        label: sizeLabels['lg']!,
         onPressed: () => setState(() => selectedSize = 'lg')
       ),
     ];
@@ -109,15 +109,15 @@ class _ChooseSizeState extends State<ChooseSize> {
   List<Widget> get largeSelected {
     return <Widget>[
       DefaultButton(
-        label: 'Small',
+        label: sizeLabels['sm']!,
         onPressed: () => setState(() => selectedSize = 'sm')
       ),
       DefaultButton(
-        label: 'Medium',
+        label: sizeLabels['md']!,
         onPressed: () => setState(() => selectedSize = 'md')
       ),
       SelectedButton(
-        label: 'Large',
+        label: sizeLabels['lg']!,
         onPressed: () => setState(() => selectedSize = 'lg')
       ),
     ];
