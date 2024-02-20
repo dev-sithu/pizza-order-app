@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pizza_app/pages/choose_crust.dart';
 import 'package:pizza_app/pages/choose_size.dart';
 import 'package:pizza_app/pages/home.dart';
 
@@ -21,6 +22,7 @@ class MainApp extends StatelessWidget {
       routes: {
         '/': (context) => const Home(),
         '/size': (context) => const ChooseSize(),
+        '/crust': (context) => const ChooseCrust(),
       },
     );
   }

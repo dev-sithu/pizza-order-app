@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pizza_app/config/constants.dart';
 import 'package:pizza_app/utils/typography.dart';
 import 'package:pizza_app/widgets/arc_downward.dart';
+import 'package:pizza_app/widgets/button_action.dart';
 import 'package:pizza_app/widgets/button_default.dart';
 import 'package:pizza_app/widgets/button_selected.dart';
 
@@ -197,36 +198,11 @@ class _ChooseSizeState extends State<ChooseSize> {
           ],
         ),
       ),
-      floatingActionButton: SizedBox(
-        width: double.infinity,
-        height: 59.0,
-        child: FloatingActionButton(
-          onPressed: () {
-            debugPrint('Next');
-          },
-          shape: const ContinuousRectangleBorder(),
-          // backgroundColor: Colors.transparent,
-          child: Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topRight,
-                end: Alignment.bottomLeft,
-                colors: [
-                  Color(0xffFFA360),
-                  Color(0xffF5313F),
-                ],
-              ),
-            ),
-            width: double.infinity,
-            alignment: Alignment.center,
-            height: 59.0,
-            child: Text(
-              'Next',
-              style: textButtonSelected(),
-              textAlign: TextAlign.center
-            )
-          )
-        ),
+      floatingActionButton: ActionButton(
+        label: 'Next',
+        onPressed: () {
+          Navigator.of(context).pushNamed('/crust');
+        },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
