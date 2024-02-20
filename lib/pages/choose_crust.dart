@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pizza_app/config/constants.dart';
+import 'package:pizza_app/utils/app_bar.dart';
 import 'package:pizza_app/utils/typography.dart';
 import 'package:pizza_app/widgets/arc_downward.dart';
 import 'package:pizza_app/widgets/button_action.dart';
@@ -23,29 +24,7 @@ class _ChooseCrustState extends State<ChooseCrust> {
     final double cost = prizes[selectedSize]! + crusts[selectedCrust]!;
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.onInverseSurface,
-        centerTitle: true,
-        leading: GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-          },
-          child: const Icon(Icons.arrow_back, color: Color(0xff6D6E9C)),
-        ),
-        title: Text(
-          'Uncle John Pizzas',
-          style: textTitleLight(color: const Color(0xff6D6E9C))
-        ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.home, color: Color(0xff6D6E9C)),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-          const SizedBox(width: 20)
-        ],
-      ),
+      appBar: appBarMain(context),
       body: SingleChildScrollView(
         child: Column(
           children: [
