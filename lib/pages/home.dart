@@ -75,7 +75,7 @@ class Home extends StatelessWidget {
                 ),
                 child: Row(
                   children: [
-                    Image.asset('assets/images/thinCrust_w_ toppings_1.png'),
+                    Image.asset('assets/images/pizza_home_1.png'),
                     Flexible( // for word-wrap
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -116,7 +116,7 @@ class Home extends StatelessWidget {
                       Image.asset('assets/images/create_your_own_pizza.png'),
                       const SizedBox(height: 5),
                       Text('The cost will depend on your customization'.toUpperCase(), style: textPreTitle(color: const Color(0xffA0A8CC))),
-                      Image.asset('assets/images/thickCrust_w_ toppings_w_ toppings_02_1.png'),
+                      Image.asset('assets/images/pizza_home_2.png'),
                     ],
                   ),
                 ),
