@@ -61,10 +61,7 @@ class PizzaOptionStack extends StatelessWidget {
                     ),
                   ],
                 ),
-                Text(
-                  'size, crust, toppings'.toUpperCase(),  // TODO: this text should be changed according to selection
-                  style: textPreTitle(color: Colors.white.withOpacity(0.3))
-                ),
+                selectionInfo
               ],
             ),
           ),
@@ -96,5 +93,27 @@ class PizzaOptionStack extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  RichText get selectionInfo {
+    List<TextSpan> selection = [];
+    TextStyle whitePure = textPreTitle(color: Colors.white);
+    TextStyle whitePale = textPreTitle(color: Colors.white.withOpacity(0.3));
+
+    if (size.isNotEmpty) {
+      selection.add(TextSpan(text: '${sizeLabels[size]!.toUpperCase()}, ', style: whitePure));
+    } else {
+      selection.add(TextSpan(text: 'size, '.toUpperCase(), style: whitePale));
+    }
+
+    if (crust.isNotEmpty) {
+      selection.add(TextSpan(text: '${'${crustLabels[crust]!} crust'.toUpperCase()}, ', style: whitePure));
+    } else {
+      selection.add(TextSpan(text: 'crust, '.toUpperCase(), style: whitePale));
+    }
+
+    selection.add(TextSpan(text: 'toppings'.toUpperCase(), style: whitePale));
+
+    return RichText(text: TextSpan(children: selection));
   }
 }
