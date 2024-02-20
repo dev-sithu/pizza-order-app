@@ -16,54 +16,6 @@ class ChooseSize extends StatefulWidget {
 class _ChooseSizeState extends State<ChooseSize> {
   String selectedSize = 'md';
 
-  var imageMeta = <String, dynamic>{
-    'sm': {
-      'img': {
-        'radius': 156.0,
-        'top': 112,
-      },
-      'arc': {
-        'radius': 176.0,
-        'top': 94,
-        'diameter': 354,
-      },
-      'label': {
-        'radius': 25.0,
-        'bottom': 42,
-      },
-    },
-    'md': {
-      'img': {
-        'radius': 170.0,
-        'top': 103,
-      },
-      'arc': {
-        'radius': 195.0,
-        'top': 75,
-        'diameter': 385,
-      },
-      'label': {
-        'radius': 25.0,
-        'bottom': 29,
-      },
-    },
-    'lg': {
-      'img': {
-        'radius': 187.0,
-        'top': 95,
-      },
-      'arc': {
-        'radius': 200.0,
-        'top': 72,
-        'diameter': 400,
-      },
-      'label': {
-        'radius': 25.0,
-        'bottom': 18,
-      },
-    },
-  };
-
   @override
   Widget build(BuildContext context) {
     var meta = imageMeta[selectedSize];
@@ -135,7 +87,7 @@ class _ChooseSizeState extends State<ChooseSize> {
                           ],
                         ),
                         Text(
-                          'size, crust, toppings'.toUpperCase(),
+                          'size, crust, toppings'.toUpperCase(),  // TODO: this text should be changed according to selection
                           style: textPreTitle(color: Colors.white.withOpacity(0.3))
                         ),
                       ],
