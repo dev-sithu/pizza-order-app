@@ -41,12 +41,13 @@ AppBar appBarHome(BuildContext context) {
         debugPrint('Title clicked!')
       },
       child: RichText(
-      text: TextSpan(
-        text: 'Delivery To:',
-        style: textBody(),
-        children: <TextSpan>[
-          TextSpan(text: '\nHOME', style: textPreTitle()),
-        ]),
+        text: TextSpan(
+          text: 'Delivery To:',
+          style: textBody(),
+          children: <TextSpan>[
+            TextSpan(text: '\nHOME', style: textPreTitle()),
+          ]
+        ),
       ),
     ),
     actions: [

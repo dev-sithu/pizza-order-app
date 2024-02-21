@@ -30,6 +30,7 @@ class _ChooseCrustState extends State<ChooseCrust> {
               type: 'crust',
               size: selectedSize,
               crust: selectedCrust,
+              toppings: const [],
               prize: cost
             ),
             // Card (3 options)
@@ -44,7 +45,7 @@ class _ChooseCrustState extends State<ChooseCrust> {
                 ),
                 child: Column(
                   children: <Widget>[
-                    Image.asset('assets/images/choose_size.png'), // Choose your size text
+                    Image.asset('assets/images/choose_crust.png'), // Choose your crust text
                     const SizedBox(height: 30),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -64,8 +65,7 @@ class _ChooseCrustState extends State<ChooseCrust> {
       floatingActionButton: ActionButton(
         label: 'Next',
         onPressed: () {
-          debugPrint('Go to /toppings');
-          // TODO: Navigator.of(context).pushNamed('/toppings');
+          Navigator.of(context).pushNamed('/toppings');
         },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

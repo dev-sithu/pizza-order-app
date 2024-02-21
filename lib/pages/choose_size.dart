@@ -30,6 +30,7 @@ class _ChooseSizeState extends State<ChooseSize> {
               type: 'size',
               size: selectedSize,
               crust: selectedCrust,
+              toppings: const [],
               prize: cost,
             ),
             // Card (3 options)

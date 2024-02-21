@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+Color defaultTextColor = const Color(0xff6D6E9C);
+
 TextStyle textHeader1({Color? color}) {
   return const TextStyle(
     fontSize: 25.0,
@@ -41,11 +43,11 @@ TextStyle textPreTitle({Color? color}) {
 }
 
 TextStyle textButtonDefault({Color? color}) {
-  return const TextStyle(
+  return TextStyle(
     fontSize: 15.0,
     fontWeight: FontWeight.normal,
     letterSpacing: -0.3,
-    color: Color(0xff6D6E9C)
+    color: defaultTextColor
   ).copyWith(color: color);
 }
 
@@ -59,21 +61,22 @@ TextStyle textButtonSelected({Color? color}) {
 }
 
 TextStyle textBody({Color? color}) {
-  return const TextStyle(
+  return TextStyle(
     fontSize: 14.0,
-    fontWeight: FontWeight.normal,
+    fontWeight: FontWeight.w300,
     letterSpacing: 0,
     height: 1.5,
-    color: Color(0xff6D6E9C)
+    color: defaultTextColor
   ).copyWith(color: color);
 }
 
 TextStyle textBodyBold({Color? color}) {
-  return const TextStyle(
+  return TextStyle(
     fontSize: 14.0,
-    fontWeight: FontWeight.bold,
+    fontWeight: FontWeight.w700,
     letterSpacing: 0,
     height: 1.5,
+    color: defaultTextColor
   ).copyWith(color: color);
 }
 
