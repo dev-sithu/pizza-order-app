@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:pizza_app/config/constants.dart';
+import 'package:pizza_app/providers/cart_provider.dart';
 import 'package:pizza_app/utils/app_bar.dart';
 import 'package:pizza_app/widgets/button_action.dart';
 import 'package:pizza_app/widgets/button_default.dart';
 import 'package:pizza_app/widgets/button_selected.dart';
 import 'package:pizza_app/widgets/pizza_option_stack.dart';
+import 'package:provider/provider.dart';
 
 class ChooseSize extends StatefulWidget {
   const ChooseSize({super.key});
@@ -14,25 +16,17 @@ class ChooseSize extends StatefulWidget {
 }
 
 class _ChooseSizeState extends State<ChooseSize> {
-  String selectedSize = 'md';
-  String selectedCrust = 'thin';
-
   @override
   Widget build(BuildContext context) {
-    double cost = prizes[selectedSize]!;
+    final providerCart = Provider.of<CartProvider>(context);
+    providerCart.setDefaultSize();
 
     return Scaffold(
       appBar: appBarMain(context),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            PizzaOptionStack(
-              type: 'size',
-              size: selectedSize,
-              crust: selectedCrust,
-              toppings: const [],
-              prize: cost,
-            ),
+            const PizzaOptionStack(type: 'size'),
             // Card (3 options)
             Padding(
               padding: const EdgeInsets.only(left: 20, right: 20),
@@ -49,10 +43,10 @@ class _ChooseSizeState extends State<ChooseSize> {
                     const SizedBox(height: 30),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: switch (selectedSize) {
-                        'sm'      => smallSelected,
-                        'lg'      => largeSelected,
-                        String()  => mediumSelected,
+                      children: switch (providerCart.size) {
+                        'sm'      => smallSelected(context),
+                        'lg'      => largeSelected(context),
+                        String()  => mediumSelected(context),
                       },
                     )
                   ],
@@ -66,6 +60,7 @@ class _ChooseSizeState extends State<ChooseSize> {
       floatingActionButton: ActionButton(
         label: 'Next',
         onPressed: () {
+          // providerCart.update();
           Navigator.of(context).pushNamed('/crust');
         },
       ),
@@ -73,53 +68,59 @@ class _ChooseSizeState extends State<ChooseSize> {
     );
   }
 
-  List<Widget> get smallSelected {
+  List<Widget> smallSelected(BuildContext context) {
+    final providerCart = Provider.of<CartProvider>(context);
+
     return <Widget>[
       SelectedButton(
         label: sizeLabels['sm']!,
-        onPressed: () => setState(() => selectedSize = 'sm')
+        onPressed: () => providerCart.size = 'sm'
       ),
       DefaultButton(
         label: sizeLabels['md']!,
-        onPressed: () => setState(() => selectedSize = 'md')
+        onPressed: () => providerCart.size = 'md'
       ),
       DefaultButton(
         label: sizeLabels['lg']!,
-        onPressed: () => setState(() => selectedSize = 'lg')
+        onPressed: () => providerCart.size = 'lg'
       ),
     ];
   }
 
-  List<Widget> get mediumSelected {
+  List<Widget> mediumSelected(BuildContext context) {
+    final providerCart = Provider.of<CartProvider>(context);
+
     return <Widget>[
       DefaultButton(
         label: sizeLabels['sm']!,
-        onPressed: () => setState(() => selectedSize = 'sm')
+        onPressed: () => providerCart.size = 'sm'
       ),
       SelectedButton(
         label: sizeLabels['md']!,
-        onPressed: () => setState(() => selectedSize = 'md')
+        onPressed: () => providerCart.size = 'md'
       ),
       DefaultButton(
         label: sizeLabels['lg']!,
-        onPressed: () => setState(() => selectedSize = 'lg')
+        onPressed: () => providerCart.size = 'lg'
       ),
     ];
   }
 
-  List<Widget> get largeSelected {
+  List<Widget> largeSelected(BuildContext context) {
+    final providerCart = Provider.of<CartProvider>(context);
+
     return <Widget>[
       DefaultButton(
         label: sizeLabels['sm']!,
-        onPressed: () => setState(() => selectedSize = 'sm')
+        onPressed: () => providerCart.size = 'sm'
       ),
       DefaultButton(
         label: sizeLabels['md']!,
-        onPressed: () => setState(() => selectedSize = 'md')
+        onPressed: () => providerCart.size = 'md'
       ),
       SelectedButton(
         label: sizeLabels['lg']!,
-        onPressed: () => setState(() => selectedSize = 'lg')
+        onPressed: () => providerCart.size = 'lg'
       ),
     ];
   }

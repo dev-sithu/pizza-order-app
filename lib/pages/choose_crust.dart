@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:pizza_app/config/constants.dart';
+import 'package:pizza_app/providers/cart_provider.dart';
 import 'package:pizza_app/utils/app_bar.dart';
 import 'package:pizza_app/widgets/button_action.dart';
 import 'package:pizza_app/widgets/button_default.dart';
 import 'package:pizza_app/widgets/button_selected.dart';
 import 'package:pizza_app/widgets/pizza_option_stack.dart';
+import 'package:provider/provider.dart';
 
 class ChooseCrust extends StatefulWidget {
   const ChooseCrust({super.key});
@@ -14,25 +16,17 @@ class ChooseCrust extends StatefulWidget {
 }
 
 class _ChooseCrustState extends State<ChooseCrust> {
-  String selectedSize = 'md';
-  String selectedCrust = 'thin';
-
   @override
   Widget build(BuildContext context) {
-    final double cost = prizes[selectedSize]! + crusts[selectedCrust]!;
+    final providerCart = Provider.of<CartProvider>(context);
+    providerCart.setDefaultCrust();
 
     return Scaffold(
       appBar: appBarMain(context),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            PizzaOptionStack(
-              type: 'crust',
-              size: selectedSize,
-              crust: selectedCrust,
-              toppings: const [],
-              prize: cost
-            ),
+            const PizzaOptionStack(type: 'crust'),
             // Card (3 options)
             Padding(
               padding: const EdgeInsets.only(left: 20, right: 20),
@@ -49,9 +43,9 @@ class _ChooseCrustState extends State<ChooseCrust> {
                     const SizedBox(height: 30),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: switch (selectedCrust) {
-                        'thick'   => thickSelected,
-                        String()  => thinSelected,
+                      children: switch (providerCart.crust) {
+                        'thick'   => thickSelected(context),
+                        String()  => thinSelected(context),
                       },
                     )
                   ],
@@ -65,6 +59,7 @@ class _ChooseCrustState extends State<ChooseCrust> {
       floatingActionButton: ActionButton(
         label: 'Next',
         onPressed: () {
+          // providerCart.update();
           Navigator.of(context).pushNamed('/toppings');
         },
       ),
@@ -72,28 +67,32 @@ class _ChooseCrustState extends State<ChooseCrust> {
     );
   }
 
-  List<Widget> get thinSelected {
+  List<Widget> thinSelected(BuildContext context) {
+    final providerCart = Provider.of<CartProvider>(context);
+
     return <Widget>[
       SelectedButton(
         label: crustLabels['thin']!,
-        onPressed: () => setState(() => selectedCrust = 'thin')
+        onPressed: () => providerCart.crust = 'thin'
       ),
       DefaultButton(
         label: crustLabels['thick']!,
-        onPressed: () => setState(() => selectedCrust = 'thick')
+        onPressed: () => providerCart.crust = 'thick'
       ),
     ];
   }
 
-  List<Widget> get thickSelected {
+  List<Widget> thickSelected(BuildContext context) {
+    final providerCart = Provider.of<CartProvider>(context);
+
     return <Widget>[
       DefaultButton(
         label: crustLabels['thin']!,
-        onPressed: () => setState(() => selectedCrust = 'thin')
+        onPressed: () => providerCart.crust = 'thin'
       ),
       SelectedButton(
         label: crustLabels['thick']!,
-        onPressed: () => setState(() => selectedCrust = 'thick')
+        onPressed: () => providerCart.crust = 'thick'
       ),
     ];
   }

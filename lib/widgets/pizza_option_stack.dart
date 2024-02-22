@@ -1,26 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:pizza_app/config/constants.dart';
+import 'package:pizza_app/providers/cart_provider.dart';
 import 'package:pizza_app/utils/typography.dart';
 import 'package:pizza_app/widgets/arc_downward.dart';
+import 'package:provider/provider.dart';
 
 class PizzaOptionStack extends StatelessWidget {
   const PizzaOptionStack({
     super.key,
-    required this.type,
-    required this.size,
-    required this.crust,
-    required this.toppings,
-    required this.prize,
+    required this.type
   });
 
   final String type;
-  final String size;
-  final String crust;
-  final List<Topping> toppings;
-  final double prize;
 
   @override
   Widget build(BuildContext context) {
+    final providerCart  = Provider.of<CartProvider>(context);
+
+    final String size   = providerCart.size;
+    final String crust  = providerCart.crust;
+    final double price  = providerCart.price;
     final Map<String, dynamic> meta = imageMeta[size];
     final String labelOnArc = type == 'size' ? '${sizes[size]}"' : '+\$${crusts[crust]!.toStringAsFixed(2)}';
     List<Widget> stackList = [];
@@ -61,14 +60,14 @@ class PizzaOptionStack extends StatelessWidget {
               children: [
                 Text('Create Your Pizza', style: textHeader1(color: Colors.white)),
                 Text(
-                  '\$${prize.toStringAsFixed(2)}',
+                  '\$${price.toStringAsFixed(2)}',
                   style: textHeader2(color: Colors.white)
                 ),
               ],
             ),
             SizedBox(
               width: MediaQuery.of(context).size.width / 1.8,
-              child: selectionInfo
+              child: selectionInfo(context)
             )
           ],
         ),
@@ -116,29 +115,31 @@ class PizzaOptionStack extends StatelessWidget {
     );
   }
 
-  RichText get selectionInfo {
+  RichText selectionInfo(BuildContext context) {
+    final providerCart = Provider.of<CartProvider>(context);
+
     List<TextSpan> selection = [];
     TextStyle whitePure = textPreTitle(color: Colors.white);
     TextStyle whitePale = textPreTitle(color: Colors.white.withOpacity(0.3));
 
-    if (size.isNotEmpty) {
-      selection.add(TextSpan(text: '${sizeLabels[size]!.toUpperCase()}, ', style: whitePure));
+    if (providerCart.size.isNotEmpty) {
+      selection.add(TextSpan(text: '${sizeLabels[providerCart.size]!.toUpperCase()}, ', style: whitePure));
     } else {
       selection.add(TextSpan(text: 'size, '.toUpperCase(), style: whitePale));
     }
 
-    if (crust.isNotEmpty) {
-      selection.add(TextSpan(text: '${'${crustLabels[crust]} crust'.toUpperCase()}, ', style: whitePure));
+    if (providerCart.crust.isNotEmpty) {
+      selection.add(TextSpan(text: '${'${crustLabels[providerCart.crust]} crust'.toUpperCase()}, ', style: whitePure));
     } else {
       selection.add(TextSpan(text: 'crust, '.toUpperCase(), style: whitePale));
     }
 
-    if (toppings.isNotEmpty) {
+    if (providerCart.toppings.isNotEmpty) {
       int i = 0;
-      for (var key in toppings) {
+      for (var key in providerCart.toppings) {
         selection.add(
           TextSpan(
-            text: ingredients[key]['name'].toUpperCase() + (i < toppings.length - 1 ? ', ' : ''),
+            text: ingredients[key]['name'].toUpperCase() + (i < providerCart.toppings.length - 1 ? ', ' : ''),
             style: whitePure
           )
         );

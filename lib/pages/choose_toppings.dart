@@ -1,10 +1,12 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:pizza_app/config/constants.dart';
+import 'package:pizza_app/providers/cart_provider.dart';
 import 'package:pizza_app/utils/app_bar.dart';
 import 'package:pizza_app/utils/typography.dart';
 import 'package:pizza_app/widgets/button_action.dart';
 import 'package:pizza_app/widgets/pizza_option_stack.dart';
+import 'package:provider/provider.dart';
 
 class ChooseToppings extends StatefulWidget {
   const ChooseToppings({super.key});
@@ -14,26 +16,17 @@ class ChooseToppings extends StatefulWidget {
 }
 
 class _ChooseToppingsState extends State<ChooseToppings> {
-  String selectedSize = 'md';
-  String selectedCrust = 'thin';
-  List<Topping> selectedToppings = [];
-
   @override
   Widget build(BuildContext context) {
-    final double cost = prizes[selectedSize]! + crusts[selectedCrust]!;
+    final providerCart = Provider.of<CartProvider>(context);
+    providerCart.setDefaultCrust();
 
     return Scaffold(
       appBar: appBarMain(context),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            PizzaOptionStack(
-              type: 'topping',
-              size: selectedSize,
-              crust: selectedCrust,
-              toppings: selectedToppings,
-              prize: cost
-            ),
+            const PizzaOptionStack(type: 'topping'),
             // Choose Toppings
             Stack(
               children: [
@@ -58,10 +51,10 @@ class _ChooseToppingsState extends State<ChooseToppings> {
                 ),
                 Container(
                   padding: const EdgeInsets.only(top: 68.0),
-                  child: toppingSelectionSlider(),
+                  child: toppingSelectionSlider(context),
                 ),
               ],
-            )
+            ) // Choose Toppings
           ],
         ),
       ),
@@ -76,7 +69,10 @@ class _ChooseToppingsState extends State<ChooseToppings> {
     );
   }
 
-  CarouselSlider toppingSelectionSlider() {
+  CarouselSlider toppingSelectionSlider(BuildContext context) {
+    final providerCart = Provider.of<CartProvider>(context);
+    List<Topping> toppings = providerCart.toppings;
+
     return CarouselSlider(
       options: CarouselOptions(
         height: 106.0,
@@ -124,7 +120,22 @@ class _ChooseToppingsState extends State<ChooseToppings> {
                   ),
                   Expanded(
                     flex: 1,
-                    child: customCheckbox(key)
+                    child: Center( // Custom checkbox
+                      child: InkWell(
+                        onTap: () {
+                          if (toppings.contains(key)) {
+                            toppings.remove(key);
+                          } else {
+                            toppings.add(key);
+                          }
+
+                          providerCart.toppings = toppings;
+                        },
+                        child: providerCart.toppings.contains(key)
+                          ? Image.asset('assets/images/checkbox-checked.png', width: 40)
+                          : Image.asset('assets/images/checkbox-unchecked.png', width: 40),
+                      )
+                    ) // Custom checkbox
                   )
                 ],
               )
@@ -132,25 +143,6 @@ class _ChooseToppingsState extends State<ChooseToppings> {
           },
         );
       }).toList(),
-    );
-  }
-
-  Widget customCheckbox(Topping index) {
-    return Center(
-      child: InkWell(
-        onTap: () {
-          setState(() {
-            if (selectedToppings.contains(index)) {
-              selectedToppings.remove(index);
-            } else {
-              selectedToppings.add(index);
-            }
-          });
-        },
-        child: selectedToppings.contains(index)
-          ? Image.asset('assets/images/checkbox-checked.png', width: 40)
-          : Image.asset('assets/images/checkbox-unchecked.png', width: 40),
-      )
     );
   }
 }
