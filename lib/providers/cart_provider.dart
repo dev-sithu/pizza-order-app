@@ -15,14 +15,14 @@ class CartProvider extends ChangeNotifier {
   // Setters
   set size(String value) {
     _size = value;
-    price = prizes[value]!;
+    price = prices[value]!;
 
     notifyListeners();
   }
 
   set crust(String value) {
     _crust = value;
-    price = prizes[size]! + crusts[value]!;
+    price = prices[size]! + crusts[value]!;
 
     notifyListeners();
   }
@@ -35,7 +35,7 @@ class CartProvider extends ChangeNotifier {
   setDefaultSize() {
     if (size.isEmpty) {
       _size = 'md'; // set the private property directly to not notify listeners
-      price = prizes[_size]!;
+      price = prices[_size]!;
     }
   }
 
@@ -44,7 +44,7 @@ class CartProvider extends ChangeNotifier {
 
     if (crust.isEmpty) {
       _crust = 'thin'; // set the private property directly to not notify listeners
-      price = prizes[_size]! + crusts[_crust]!;
+      price = prices[_size]! + crusts[_crust]!;
     }
   }
 }

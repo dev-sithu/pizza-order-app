@@ -12,7 +12,7 @@ const sizes = <String, int>{
   'md': 12,
   'lg': 14,
 };
-const prizes = <String, double>{
+const prices = <String, double>{
   'sm': 8.00,
   'md': 10.00,
   'lg': 12.00,
