@@ -61,8 +61,7 @@ class _ChooseToppingsState extends State<ChooseToppings> {
       floatingActionButton: ActionButton(
         label: 'Done',
         onPressed: () {
-          debugPrint('Go to the cart page');
-          // TODO: Navigator.of(context).pushNamed('/cart');
+          Navigator.of(context).pushNamed('/cart');
         },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
