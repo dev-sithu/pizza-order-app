@@ -69,18 +69,17 @@ const imageMeta = <String, dynamic>{
   },
 };
 
-// ignore: camel_case_types
-enum topping { pepperoni, mushroom, olive, sausage, bacon, cheese, pepper, pineapple, spinach, onion }
+enum Topping { pepperoni, mushroom, olive, sausage, bacon, cheese, pepper, pineapple, spinach, onion }
 
-const ingredients = <topping, dynamic>{
-  topping.pepperoni: { 'name': 'Pepperoni', 'prize': 0.00 },
-  topping.mushroom: { 'name': 'Mushrooms', 'prize': 0.00 },
-  topping.olive: { 'name': 'Black Olives', 'prize': 0.00 },
-  topping.sausage: { 'name': 'Sausages', 'prize': 0.00 },
-  topping.bacon: { 'name': 'Bacon', 'prize': 0.00 },
-  topping.cheese: { 'name': 'Extra Cheese', 'prize': 0.00 },
-  topping.pepper: { 'name': 'Green Peppers', 'prize': 0.00 },
-  topping.pineapple: { 'name': 'Pineapple', 'prize': 0.00 },
-  topping.spinach: { 'name': 'Spinach', 'prize': 0.00 },
-  topping.onion: { 'name': 'Onions', 'prize': 0.00 },
+const ingredients = <Topping, dynamic>{
+  Topping.pepperoni: { 'name': 'Pepperoni', 'prize': 0.00 },
+  Topping.mushroom: { 'name': 'Mushrooms', 'prize': 0.00 },
+  Topping.olive: { 'name': 'Black Olives', 'prize': 0.00 },
+  Topping.sausage: { 'name': 'Sausages', 'prize': 0.00 },
+  Topping.bacon: { 'name': 'Bacon', 'prize': 0.00 },
+  Topping.cheese: { 'name': 'Extra Cheese', 'prize': 0.00 },
+  Topping.pepper: { 'name': 'Green Peppers', 'prize': 0.00 },
+  Topping.pineapple: { 'name': 'Pineapple', 'prize': 0.00 },
+  Topping.spinach: { 'name': 'Spinach', 'prize': 0.00 },
+  Topping.onion: { 'name': 'Onions', 'prize': 0.00 },
 };

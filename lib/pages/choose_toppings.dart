@@ -16,7 +16,7 @@ class ChooseToppings extends StatefulWidget {
 class _ChooseToppingsState extends State<ChooseToppings> {
   String selectedSize = 'md';
   String selectedCrust = 'thin';
-  List<topping> selectedToppings = [];
+  List<Topping> selectedToppings = [];
 
   @override
   Widget build(BuildContext context) {
@@ -109,7 +109,7 @@ class _ChooseToppingsState extends State<ChooseToppings> {
                 children: [
                   Expanded(
                     flex: 2,
-                    child: Image.asset('assets/images/ingredients/$key.png'),
+                    child: Image.asset('assets/images/ingredients/${key.toString().toLowerCase()}.png'),
                   ),
                   Expanded(
                     flex: 5,
@@ -135,7 +135,7 @@ class _ChooseToppingsState extends State<ChooseToppings> {
     );
   }
 
-  Widget customCheckbox(topping index) {
+  Widget customCheckbox(Topping index) {
     return Center(
       child: InkWell(
         onTap: () {

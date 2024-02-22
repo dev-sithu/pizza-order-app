@@ -16,7 +16,7 @@ class PizzaOptionStack extends StatelessWidget {
   final String type;
   final String size;
   final String crust;
-  final List<topping> toppings;
+  final List<Topping> toppings;
   final double prize;
 
   @override
