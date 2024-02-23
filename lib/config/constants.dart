@@ -72,14 +72,14 @@ const imageMeta = <String, dynamic>{
 enum Topping { pepperoni, mushroom, olive, sausage, bacon, cheese, pepper, pineapple, spinach, onion }
 
 const ingredients = <Topping, dynamic>{
-  Topping.pepperoni: { 'name': 'Pepperoni', 'prize': 0.00 },
-  Topping.mushroom: { 'name': 'Mushrooms', 'prize': 0.00 },
-  Topping.olive: { 'name': 'Black Olives', 'prize': 0.00 },
-  Topping.sausage: { 'name': 'Sausages', 'prize': 0.00 },
-  Topping.bacon: { 'name': 'Bacon', 'prize': 0.00 },
-  Topping.cheese: { 'name': 'Extra Cheese', 'prize': 0.00 },
-  Topping.pepper: { 'name': 'Green Peppers', 'prize': 0.00 },
-  Topping.pineapple: { 'name': 'Pineapple', 'prize': 0.00 },
-  Topping.spinach: { 'name': 'Spinach', 'prize': 0.00 },
-  Topping.onion: { 'name': 'Onions', 'prize': 0.00 },
+  Topping.pepperoni: { 'name': 'Pepperoni', 'price': 0.00 },
+  Topping.mushroom: { 'name': 'Mushrooms', 'price': 0.00 },
+  Topping.olive: { 'name': 'Black Olives', 'price': 0.00 },
+  Topping.sausage: { 'name': 'Sausages', 'price': 0.00 },
+  Topping.bacon: { 'name': 'Bacon', 'price': 0.00 },
+  Topping.cheese: { 'name': 'Extra Cheese', 'price': 0.00 },
+  Topping.pepper: { 'name': 'Green Peppers', 'price': 0.00 },
+  Topping.pineapple: { 'name': 'Pineapple', 'price': 0.00 },
+  Topping.spinach: { 'name': 'Spinach', 'price': 0.00 },
+  Topping.onion: { 'name': 'Onions', 'price': 0.00 },
 };

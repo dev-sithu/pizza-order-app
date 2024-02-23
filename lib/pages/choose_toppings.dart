@@ -113,7 +113,7 @@ class _ChooseToppingsState extends State<ChooseToppings> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text('${ingredients[key]['name']}', style: textBodyBold()),
-                        Text('+ \$${ingredients[key]['prize'].toStringAsFixed(2)}', style: textBody())
+                        Text('+ \$${ingredients[key]['price'].toStringAsFixed(2)}', style: textBody())
                       ],
                     ),
                   ),

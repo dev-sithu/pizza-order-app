@@ -13,7 +13,7 @@ TextStyle textHeader1({Color? color}) {
 TextStyle textHeader2({Color? color}) {
   return const TextStyle(
     fontSize: 25.0,
-    fontWeight: FontWeight.bold,
+    fontWeight: FontWeight.w700,
     letterSpacing: -0.3,
   ).copyWith(color: color);
 }
@@ -29,7 +29,7 @@ TextStyle textHeader3({Color? color}) {
 TextStyle textHeader4({Color? color}) {
   return const TextStyle(
     fontSize: 20.0,
-    fontWeight: FontWeight.bold,
+    fontWeight: FontWeight.w700,
     letterSpacing: -0.3,
   ).copyWith(color: color);
 }
@@ -37,7 +37,7 @@ TextStyle textHeader4({Color? color}) {
 TextStyle textPreTitle({Color? color}) {
   return const TextStyle(
     fontSize: 10.0,
-    fontWeight: FontWeight.bold,
+    fontWeight: FontWeight.w700,
     letterSpacing: 1,
   ).copyWith(color: color);
 }
