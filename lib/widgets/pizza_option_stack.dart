@@ -20,11 +20,15 @@ class PizzaOptionStack extends StatelessWidget {
     final String size   = providerCart.size;
     final String crust  = providerCart.crust;
     final double price  = providerCart.price;
-    final Map<String, dynamic> meta = imageMeta[size];
+    Map<String, dynamic> meta = imageMeta[size];
     final String labelOnArc = type == 'size' ? '${sizes[size]}"' : '+\$${crusts[crust]!.toStringAsFixed(2)}';
     List<Widget> stackList = [];
 
     if (type != 'topping') {
+      if (type == 'crust') {
+        meta = imageMeta['md'];
+      }
+
       // Semi-circle arc
       stackList.add(
         Positioned(
