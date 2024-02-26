@@ -162,6 +162,7 @@ class _CheckoutState extends State<Checkout> {
                   borderRadius: BorderRadius.all(Radius.circular(20.0)),
                 ),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -196,6 +197,15 @@ class _CheckoutState extends State<Checkout> {
                           style: textBodyBold()
                         ),
                       ],
+                    ),
+                    const SizedBox(height: 10.0),
+                    Container(
+                      padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20.0),
+                      decoration: BoxDecoration(
+                        color: const Color(0xffDEF3E1),
+                        borderRadius: BorderRadius.circular(10.0)
+                      ),
+                      child: Text('10% Cashback Applied'.toUpperCase(), style: textPreTitle(color: const Color(0xff57C168))),
                     ),
                   ],
                 ),
