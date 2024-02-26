@@ -54,7 +54,7 @@ AppBar appBarHome(BuildContext context) {
       IconButton(
         icon: const Icon(Icons.shopping_bag),
         onPressed: () {
-          debugPrint('Action icon clicked');
+          Navigator.of(context).pushNamed('/cart');
         },
       ),
       const SizedBox(width: 20)
