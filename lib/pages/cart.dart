@@ -21,7 +21,7 @@ class _CartState extends State<Cart> {
     // Reference: https://stackoverflow.com/a/49458289/1179841
     Future.delayed(Duration.zero, () {
       final providerCart = Provider.of<CartProvider>(context, listen: false);
-      if (providerCart.crust.isEmpty) {
+      if (providerCart.cartIsEmpty()) {
         Navigator.of(context).popUntil(ModalRoute.withName('/'));
       }
     });
@@ -31,7 +31,7 @@ class _CartState extends State<Cart> {
   Widget build(BuildContext context) {
     final providerCart = Provider.of<CartProvider>(context);
 
-    if (providerCart.crust.isEmpty) {
+    if (providerCart.cartIsEmpty()) {
       return Scaffold(
         appBar: appBarMain(context),
         body: const Center(child: Text('')),
@@ -77,9 +77,9 @@ class _CartState extends State<Cart> {
               Positioned(
                 top: 250,
                 child: Container(
+                  constraints: const BoxConstraints(minHeight: 346.0),
                   padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 40),
                   width: MediaQuery.of(context).size.width / 1.4,
-                  height: 346.0,
                   decoration: const BoxDecoration(
                     color: Color.fromRGBO(255, 255, 255, 0.8),
                     borderRadius: BorderRadius.only(
@@ -123,7 +123,7 @@ class _CartState extends State<Cart> {
       floatingActionButton: ActionButton(
         label: 'Confirm Pizza',
         onPressed: () {
-          // TODO: Navigator.of(context).pushNamed('/checkout');
+          Navigator.of(context).pushNamed('/checkout');
         },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

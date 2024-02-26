@@ -5,7 +5,7 @@ Color defaultTextColor = const Color(0xff6D6E9C);
 TextStyle textHeader1({Color? color}) {
   return const TextStyle(
     fontSize: 25.0,
-    fontWeight: FontWeight.normal,
+    fontWeight: FontWeight.w300,
     letterSpacing: -0.3,
   ).copyWith(color: color);
 }
@@ -21,7 +21,7 @@ TextStyle textHeader2({Color? color}) {
 TextStyle textHeader3({Color? color}) {
   return const TextStyle(
     fontSize: 20.0,
-    fontWeight: FontWeight.normal,
+    fontWeight: FontWeight.w300,
     letterSpacing: -0.3,
   ).copyWith(color: color);
 }
@@ -45,7 +45,7 @@ TextStyle textPreTitle({Color? color}) {
 TextStyle textButtonDefault({Color? color}) {
   return TextStyle(
     fontSize: 15.0,
-    fontWeight: FontWeight.normal,
+    fontWeight: FontWeight.w300,
     letterSpacing: -0.3,
     color: defaultTextColor
   ).copyWith(color: color);

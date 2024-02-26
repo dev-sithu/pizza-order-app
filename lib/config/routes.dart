@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pizza_app/pages/cart.dart';
+import 'package:pizza_app/pages/checkout.dart';
 import 'package:pizza_app/pages/choose_crust.dart';
 import 'package:pizza_app/pages/choose_size.dart';
 import 'package:pizza_app/pages/choose_toppings.dart';
@@ -11,4 +12,5 @@ Map<String, Widget Function(dynamic context)> routes = {
   '/crust': (context) => const ChooseCrust(),
   '/toppings': (context) => const ChooseToppings(),
   '/cart': (context) => const Cart(),
+  '/checkout': (context) => const Checkout(),
 };

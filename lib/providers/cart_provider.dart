@@ -7,11 +7,17 @@ class CartProvider extends ChangeNotifier {
   List<Topping> _toppings = [];
   double price = 0.00;
   double _total = 0.00;
+  bool _contactless = false;
 
   // Getters
   String get size => _size;
   String get crust => _crust;
   List<Topping> get toppings => _toppings;
+  bool get contactless => _contactless;
+
+  bool cartIsEmpty() {
+    return _crust.isEmpty;
+  }
 
   double get total {
     _total = prices[size]! + crusts[crust]!;
@@ -39,6 +45,12 @@ class CartProvider extends ChangeNotifier {
 
   set toppings(List<Topping> value) {
     _toppings = value;
+    notifyListeners();
+  }
+
+  set contactless(bool value) {
+    _contactless = value;
+
     notifyListeners();
   }
 
