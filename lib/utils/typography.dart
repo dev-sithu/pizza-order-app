@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 Color defaultTextColor = const Color(0xff6D6E9C);
+Color redTextColor = const Color(0xffF5313F);
 
 TextStyle textHeader1({Color? color}) {
   return const TextStyle(

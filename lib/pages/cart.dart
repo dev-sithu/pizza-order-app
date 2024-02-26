@@ -90,10 +90,10 @@ class _CartState extends State<Cart> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Icon(Icons.shopping_cart, color: Color(0xffF5313F), size: 17),
+                      Icon(Icons.shopping_cart, color: redTextColor, size: 17),
                       Text(
                         'Order Summary'.toUpperCase(),
-                        style: textPreTitle(color: const Color(0xffF5313F)).copyWith(height: 1.8)
+                        style: textPreTitle(color: redTextColor).copyWith(height: 1.8)
                       ),
                       const SizedBox(height: 15.0),
                       const Divider(height: 0.5, color: Color(0xffDADAE5)),

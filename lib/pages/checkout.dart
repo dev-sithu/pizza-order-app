@@ -102,10 +102,10 @@ class _CheckoutState extends State<Checkout> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              const Icon(Icons.room, color: Color(0xffF5313F)),
+                              Icon(Icons.room, color: redTextColor),
                               const SizedBox(width: 5.0),
                               Expanded(
-                                child: Text('Delivery Address', style: textHeader4(color: const Color(0xffF5313F)))
+                                child: Text('Delivery Address', style: textHeader4(color: redTextColor))
                               ),
                               const IconEdit(),
                             ],
@@ -167,10 +167,10 @@ class _CheckoutState extends State<Checkout> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Icon(Icons.wallet, color: Color(0xffF5313F)),
+                        Icon(Icons.wallet, color: redTextColor),
                         const SizedBox(width: 8.0),
                         Expanded(
-                          child: Text('Payment method', style: textHeader4(color: const Color(0xffF5313F)))
+                          child: Text('Payment method', style: textHeader4(color: redTextColor))
                         ),
                         const IconEdit(),
                       ],
@@ -217,7 +217,7 @@ class _CheckoutState extends State<Checkout> {
       floatingActionButton: ActionButton(
         label: 'Place Order',
         onPressed: () {
-          // TODO: Navigator.of(context).pushNamed('/order');
+          Navigator.of(context).pushNamed('/order');
         },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
