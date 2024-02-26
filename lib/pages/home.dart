@@ -15,85 +15,9 @@ class Home extends StatelessWidget {
         child: Column(
           children: [
             // Half BG / Hero section
-            Container(
-              width: double.infinity,
-              height: 152,
-              decoration: BoxDecoration(
-                gradient: boxGradientRed(),
-              ),
-              // Header
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const SizedBox(height: 20),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 30, right: 20, bottom: 2),
-                    child: Text('Good Day!', style: textBody(color: Colors.white)),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20, right: 20),
-                    child: IntrinsicHeight(
-                      child: Row(
-                        children: [
-                          const Padding(
-                            padding: EdgeInsets.only(left: 5, right: 5),
-                            child: VerticalDivider(color: Colors.white, thickness: 2),
-                          ),
-                          RichText(
-                            text: TextSpan(
-                              text: 'What',
-                              style: textHeader1(color: Colors.white),
-                              children: [
-                                TextSpan(text: ' pizza', style: textHeader2()),
-                                TextSpan(text: ' do you\nwant to try today?', style: textHeader1())
-                              ]
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            cardHero(),
             // Card / Reorder
-            Padding(
-              padding: const EdgeInsets.only(left: 20, right: 20),
-              child: Container(
-                width: double.infinity,
-                height: 218,
-                transform: Matrix4.translationValues(0.0, -35.0, 0.0),
-                decoration: const BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                ),
-                child: Row(
-                  children: [
-                    Image.asset('assets/images/pizza_home_1.png'),
-                    Flexible( // for word-wrap
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text('Reorder again?', style: textHeader4(color: redTextColor)),
-                          Text('Small, thin crust, tomatoes, basil, cheese'.toUpperCase(), style: textPreTitle()),
-                          const SizedBox(height: 5),
-                          Text('\$12', style: textHeader4()),
-                          const SizedBox(height: 8),
-                          SelectedButton(
-                            label: 'Add To Cart',
-                            width: 123.0,
-                            onPressed: () {
-                              debugPrint('add to cart');
-                            },
-                          ),
-                        ],
-                      )
-                    )
-                  ],
-                ),
-              ),
-            ),
+            cardReorder(),
             // Card / Create Pizza
             Padding(
               padding: const EdgeInsets.only(left: 20, right: 20),
@@ -122,6 +46,90 @@ class Home extends StatelessWidget {
           ],
         ),
       )
+    );
+  }
+
+  Container cardHero() {
+    return Container(
+      width: double.infinity,
+      height: 152,
+      decoration: BoxDecoration(
+        gradient: boxGradientRed(),
+      ),
+      // Header
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SizedBox(height: 20),
+          Padding(
+            padding: const EdgeInsets.only(left: 30, right: 20, bottom: 2),
+            child: Text('Good Day!', style: textBody(color: Colors.white)),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 20, right: 20),
+            child: IntrinsicHeight(
+              child: Row(
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.only(left: 5, right: 5),
+                    child: VerticalDivider(color: Colors.white, thickness: 2),
+                  ),
+                  RichText(
+                    text: TextSpan(
+                      text: 'What',
+                      style: textHeader1(color: Colors.white),
+                      children: [
+                        TextSpan(text: ' pizza', style: textHeader2()),
+                        TextSpan(text: ' do you\nwant to try today?', style: textHeader1())
+                      ]
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Padding cardReorder() {
+    return Padding(
+      padding: const EdgeInsets.only(left: 20, right: 20),
+      child: Container(
+        width: double.infinity,
+        height: 218,
+        transform: Matrix4.translationValues(0.0, -35.0, 0.0),
+        decoration: const BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.all(Radius.circular(20.0)),
+        ),
+        child: Row(
+          children: [
+            Image.asset('assets/images/pizza_home_1.png'),
+            Flexible( // for word-wrap
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('Reorder again?', style: textHeader4(color: redTextColor)),
+                  Text('Small, thin crust, tomatoes, basil, cheese'.toUpperCase(), style: textPreTitle()),
+                  const SizedBox(height: 5),
+                  Text('\$12', style: textHeader4()),
+                  const SizedBox(height: 8),
+                  SelectedButton(
+                    label: 'Add To Cart',
+                    width: 123.0,
+                    onPressed: () {
+                      debugPrint('add to cart');
+                    },
+                  ),
+                ],
+              )
+            )
+          ],
+        ),
+      ),
     );
   }
 }
