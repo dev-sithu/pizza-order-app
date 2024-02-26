@@ -28,15 +28,8 @@ class SelectedButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(30.0)
         ),
         child: Container(
-          decoration: const BoxDecoration(
-            boxShadow: [
-              BoxShadow( // box-shadow: 0px 6px 25px 0px #F5313F66;
-                offset: Offset(0, 6),
-                blurRadius: 25,
-                spreadRadius: 0,
-                color: Color.fromRGBO(245, 49, 63, 0.4),
-              )
-            ],
+          decoration: BoxDecoration(
+            boxShadow: [boxShadowRed()],
           ),
           constraints: BoxConstraints(maxWidth: width, minHeight: height),
           alignment: Alignment.center,
