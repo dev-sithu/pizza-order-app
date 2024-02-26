@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pizza_app/utils/box.dart';
 import 'package:pizza_app/utils/typography.dart';
 
 class SelectedButton extends StatelessWidget {
@@ -23,14 +24,7 @@ class SelectedButton extends StatelessWidget {
       padding: const EdgeInsets.all(0.0),
       child: Ink(
         decoration: BoxDecoration(
-          gradient: const LinearGradient(
-            begin: Alignment.topRight,
-            end: Alignment.bottomLeft,
-            colors: [
-              Color(0xffFFA360),
-              Color(0xffF5313F),
-            ],
-          ),
+          gradient: boxGradientRed(),
           borderRadius: BorderRadius.circular(30.0)
         ),
         child: Container(

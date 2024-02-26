@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pizza_app/utils/box.dart';
 import 'package:pizza_app/utils/typography.dart';
 
 class ActionButton extends StatelessWidget {
@@ -20,15 +21,8 @@ class ActionButton extends StatelessWidget {
         onPressed: onPressed,
         shape: const ContinuousRectangleBorder(),
         child: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-              colors: [
-                Color(0xffFFA360),
-                Color(0xffF5313F),
-              ],
-            ),
+          decoration: BoxDecoration(
+            gradient: boxGradientRed(),
           ),
           width: double.infinity,
           alignment: Alignment.center,

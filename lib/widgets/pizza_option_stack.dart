@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pizza_app/config/constants.dart';
 import 'package:pizza_app/providers/cart_provider.dart';
+import 'package:pizza_app/utils/box.dart';
 import 'package:pizza_app/utils/typography.dart';
 import 'package:pizza_app/widgets/arc_downward.dart';
 import 'package:provider/provider.dart';
@@ -45,15 +46,8 @@ class PizzaOptionStack extends StatelessWidget {
         padding: const EdgeInsets.all(25.0),
         width: double.infinity,
         height: 287.0,
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topRight,
-            end: Alignment.bottomLeft,
-            colors: [
-              Color(0xffFFA360),
-              Color(0xffF5313F),
-            ],
-          )
+        decoration: BoxDecoration(
+          gradient: boxGradientRed(),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

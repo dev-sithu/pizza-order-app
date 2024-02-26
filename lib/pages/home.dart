@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pizza_app/utils/app_bar.dart';
+import 'package:pizza_app/utils/box.dart';
 import 'package:pizza_app/utils/typography.dart';
 import 'package:pizza_app/widgets/button_selected.dart';
 
@@ -17,15 +18,8 @@ class Home extends StatelessWidget {
             Container(
               width: double.infinity,
               height: 152,
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topRight,
-                  end: Alignment.bottomLeft,
-                  colors: [
-                    Color(0xffFFA360),
-                    Color(0xffF5313F),
-                  ],
-                )
+              decoration: BoxDecoration(
+                gradient: boxGradientRed(),
               ),
               // Header
               child: Column(
@@ -81,7 +75,7 @@ class Home extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text('Reorder again?', style: textHeader4(color: const Color(0xffF5313F))),
+                          Text('Reorder again?', style: textHeader4(color: redTextColor)),
                           Text('Small, thin crust, tomatoes, basil, cheese'.toUpperCase(), style: textPreTitle()),
                           const SizedBox(height: 5),
                           Text('\$12', style: textHeader4()),

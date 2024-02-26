@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:pizza_app/providers/cart_provider.dart';
 import 'package:pizza_app/utils/app_bar.dart';
+import 'package:pizza_app/utils/box.dart';
 import 'package:pizza_app/utils/typography.dart';
 import 'package:provider/provider.dart';
 
@@ -52,15 +53,8 @@ class _OrderState extends State<Order> {
                     padding: const EdgeInsets.all(25.0),
                     width: double.infinity,
                     height: 200.0,
-                    decoration: const BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.topRight,
-                        end: Alignment.bottomLeft,
-                        colors: [
-                          Color(0xffFFA360),
-                          Color(0xffF5313F),
-                        ],
-                      )
+                    decoration: BoxDecoration(
+                      gradient: boxGradientRed(),
                     ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
