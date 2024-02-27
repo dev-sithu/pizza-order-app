@@ -3,6 +3,7 @@ import 'package:pizza_app/utils/app_bar.dart';
 import 'package:pizza_app/utils/box.dart';
 import 'package:pizza_app/utils/typography.dart';
 import 'package:pizza_app/widgets/button_selected.dart';
+import 'package:pizza_app/widgets/navbar.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -10,6 +11,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const NavBar(),
       appBar: appBarHome(context),
       body: SingleChildScrollView(
         child: Column(

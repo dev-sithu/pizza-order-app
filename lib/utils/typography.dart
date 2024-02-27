@@ -71,6 +71,16 @@ TextStyle textBody({Color? color}) {
   ).copyWith(color: color);
 }
 
+TextStyle textBodyLight({Color? color}) {
+  return TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    letterSpacing: 0,
+    height: 1.5,
+    color: defaultTextColor
+  ).copyWith(color: color);
+}
+
 TextStyle textBodyBold({Color? color}) {
   return TextStyle(
     fontSize: 14.0,

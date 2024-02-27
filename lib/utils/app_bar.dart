@@ -30,12 +30,12 @@ AppBar appBarMain(BuildContext context) {
 AppBar appBarHome(BuildContext context) {
   return AppBar(
     backgroundColor: Theme.of(context).colorScheme.onInverseSurface,
-    leading: GestureDetector(
-      onTap: () => {
-        debugPrint('Leading icon clicked!')
-      },
-      child: const Icon(Icons.menu),
-    ),
+    // leading: GestureDetector(
+    //   onTap: () => {
+    //     debugPrint('Leading icon clicked!')
+    //   },
+    //   child: const Icon(Icons.menu),
+    // ),
     title: GestureDetector(
       onTap: () => {
         debugPrint('Title clicked!')
